@@ -1,4 +1,4 @@
-
+use aoc::trebuchet;
 
 #[test]
 fn trebuchet_test() {
@@ -10,5 +10,5 @@ a1b2c3d4e5f
 treb7uchet
     "#;
 
-    assert_eq!(aoc::trebuchet(input), 142);
+    assert_eq!(trebuchet::trebuchet(input), 142);
 }
