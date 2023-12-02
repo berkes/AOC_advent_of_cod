@@ -38,9 +38,7 @@ fn extremeties_words(line: String) -> u32 {
     // loop over all number words and find them in the line and return the first number
     let mut first_opts = number_words()
         .iter()
-        .filter_map(|word| {
-            line.find(word).map(|idx| (idx, word_to_u32(word).unwrap()))
-        })
+        .filter_map(|word| line.find(word).map(|idx| (idx, word_to_u32(word).unwrap())))
         .collect::<Vec<(usize, u32)>>();
 
     first_opts.sort_by(|a, b| a.0.cmp(&b.0));
@@ -50,7 +48,8 @@ fn extremeties_words(line: String) -> u32 {
     let mut last_opts = number_words()
         .iter()
         .filter_map(|word| {
-            line.rfind(word).map(|idx| (idx, word_to_u32(word).unwrap()))
+            line.rfind(word)
+                .map(|idx| (idx, word_to_u32(word).unwrap()))
         })
         .collect::<Vec<(usize, u32)>>();
     last_opts.sort_by(|a, b| a.0.cmp(&b.0));

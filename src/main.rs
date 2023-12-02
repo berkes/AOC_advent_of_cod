@@ -1,5 +1,5 @@
-mod trebuchet;
 mod cube_game;
+mod trebuchet;
 
 fn main() {
     let input = include_str!("../datafiles/01.txt");

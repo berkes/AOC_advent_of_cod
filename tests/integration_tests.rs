@@ -1,5 +1,5 @@
-use aoc::trebuchet;
 use aoc::cube_game;
+use aoc::trebuchet;
 
 #[test]
 fn trebuchet_test() {

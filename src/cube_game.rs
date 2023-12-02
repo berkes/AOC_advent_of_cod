@@ -5,15 +5,30 @@ struct Game {
 
 impl Game {
     fn is_possible(&self, max_red: u32, max_green: u32, max_blue: u32) -> bool {
-        self.reveals.iter().all(|reveal| {
-            reveal.is_possible(max_red, max_green, max_blue)
-        })
+        self.reveals
+            .iter()
+            .all(|reveal| reveal.is_possible(max_red, max_green, max_blue))
     }
 
     fn fewest_colors(&self) -> Reveal {
-        let mut red = self.reveals.iter().map(|reveal| reveal.red).max().unwrap_or(0);
-        let mut green = self.reveals.iter().map(|reveal| reveal.green).max().unwrap_or(0);
-        let mut blue = self.reveals.iter().map(|reveal| reveal.blue).max().unwrap_or(0);
+        let red = self
+            .reveals
+            .iter()
+            .map(|reveal| reveal.red)
+            .max()
+            .unwrap_or(0);
+        let green = self
+            .reveals
+            .iter()
+            .map(|reveal| reveal.green)
+            .max()
+            .unwrap_or(0);
+        let blue = self
+            .reveals
+            .iter()
+            .map(|reveal| reveal.blue)
+            .max()
+            .unwrap_or(0);
 
         Reveal { red, green, blue }
     }
@@ -21,11 +36,11 @@ impl Game {
 
 impl From<&str> for Game {
     fn from(line: &str) -> Self {
-        let mut parts = line.split(":");
+        let mut parts = line.split(':');
         let id = parts
             .next()
             .unwrap()
-            .split(" ")
+            .split(' ')
             .nth(1)
             .unwrap()
             .parse::<u32>()
@@ -34,10 +49,8 @@ impl From<&str> for Game {
         let reveals = parts
             .next()
             .unwrap()
-            .split(";")
-            .map(|reveal| {
-                Reveal::from(reveal)
-            })
+            .split(';')
+            .map(Reveal::from)
             .collect::<Vec<Reveal>>();
 
         Game { id, reveals }
@@ -58,7 +71,7 @@ impl Reveal {
 
 impl From<&str> for Reveal {
     fn from(line: &str) -> Self {
-        let parts = line.split(",");
+        let parts = line.split(',');
 
         let mut red: u32 = 0;
         let mut green: u32 = 0;
@@ -68,16 +81,30 @@ impl From<&str> for Reveal {
             let part = part.trim();
 
             if part.contains("red") {
-                red = part.split(" ").next().unwrap_or("0").parse::<u32>().unwrap_or(0);
+                red = part
+                    .split(' ')
+                    .next()
+                    .unwrap_or("0")
+                    .parse::<u32>()
+                    .unwrap_or(0);
             }
             if part.contains("green") {
-                green = part.split(" ").next().unwrap_or("0").parse::<u32>().unwrap_or(0);
+                green = part
+                    .split(' ')
+                    .next()
+                    .unwrap_or("0")
+                    .parse::<u32>()
+                    .unwrap_or(0);
             }
             if part.contains("blue") {
-                blue = part.split(" ").next().unwrap_or("0").parse::<u32>().unwrap_or(0);
+                blue = part
+                    .split(' ')
+                    .next()
+                    .unwrap_or("0")
+                    .parse::<u32>()
+                    .unwrap_or(0);
             }
         });
-
 
         Self { red, green, blue }
     }
@@ -88,7 +115,7 @@ pub fn cube_game(input: &str) -> u32 {
     const MAX_GREEN: u32 = 13;
     const MAX_BLUE: u32 = 14;
 
-    let games: Vec<Game> = input.lines().map(|line| Game::from(line)).collect();
+    let games: Vec<Game> = input.lines().map(Game::from).collect();
 
     let possible_games = games
         .iter()
@@ -99,10 +126,13 @@ pub fn cube_game(input: &str) -> u32 {
 }
 
 pub fn fewest_power(input: &str) -> u32 {
-   let games: Vec<Game> = input.lines().map(|line| Game::from(line)).collect();
-   let fewest_colors: Vec<Reveal> = games.iter().map(|game| game.fewest_colors()).collect();
+    let games: Vec<Game> = input.lines().map(Game::from).collect();
+    let fewest_colors: Vec<Reveal> = games.iter().map(|game| game.fewest_colors()).collect();
 
-   fewest_colors.iter().map(|reveal| reveal.red * reveal.green * reveal.blue).sum()
+    fewest_colors
+        .iter()
+        .map(|reveal| reveal.red * reveal.green * reveal.blue)
+        .sum()
 }
 
 #[cfg(test)]
