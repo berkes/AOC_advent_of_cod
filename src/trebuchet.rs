@@ -93,9 +93,8 @@ mod tests {
         let mut numbers = number_words()
             .iter()
             .filter_map(|word| {
-                let idx = line.find(word);
-                if idx.is_some() {
-                    Some((idx.unwrap(), word_to_u32(word).unwrap()))
+                if let Some(idx) = line.find(word) {
+                    Some((idx, word_to_u32(word).unwrap()))
                 } else {
                     None
                 }
