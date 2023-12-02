@@ -9,6 +9,14 @@ impl Game {
             reveal.is_possible(max_red, max_green, max_blue)
         })
     }
+
+    fn fewest_colors(&self) -> Reveal {
+        let mut red = self.reveals.iter().map(|reveal| reveal.red).max().unwrap_or(0);
+        let mut green = self.reveals.iter().map(|reveal| reveal.green).max().unwrap_or(0);
+        let mut blue = self.reveals.iter().map(|reveal| reveal.blue).max().unwrap_or(0);
+
+        Reveal { red, green, blue }
+    }
 }
 
 impl From<&str> for Game {
@@ -90,6 +98,13 @@ pub fn cube_game(input: &str) -> u32 {
     possible_games.iter().map(|game| game.id).sum()
 }
 
+pub fn fewest_power(input: &str) -> u32 {
+   let games: Vec<Game> = input.lines().map(|line| Game::from(line)).collect();
+   let fewest_colors: Vec<Reveal> = games.iter().map(|game| game.fewest_colors()).collect();
+
+   fewest_colors.iter().map(|reveal| reveal.red * reveal.green * reveal.blue).sum()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -121,5 +136,14 @@ mod tests {
         assert_eq!(reveal.red, 1);
         assert_eq!(reveal.green, 2);
         assert_eq!(reveal.blue, 0);
+    }
+
+    #[test]
+    fn game_fewest_colors() {
+        let game = Game::from("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green");
+        let reveal = game.fewest_colors();
+        assert_eq!(reveal.red, 4);
+        assert_eq!(reveal.green, 2);
+        assert_eq!(reveal.blue, 6);
     }
 }
