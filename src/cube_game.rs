@@ -11,26 +11,24 @@ impl Game {
     }
 
     fn fewest_colors(&self) -> Reveal {
-        let red = self
-            .reveals
-            .iter()
-            .map(|reveal| reveal.red)
-            .max()
-            .unwrap_or(0);
-        let green = self
-            .reveals
-            .iter()
-            .map(|reveal| reveal.green)
-            .max()
-            .unwrap_or(0);
-        let blue = self
-            .reveals
-            .iter()
-            .map(|reveal| reveal.blue)
-            .max()
-            .unwrap_or(0);
+        let mut max = Reveal {
+            red: 0,
+            green: 0,
+            blue: 0,
+        };
+        self.reveals.iter().for_each(|reveal| {
+            if reveal.red > max.red {
+                max.red = reveal.red;
+            }
+            if reveal.green > max.green {
+                max.green = reveal.green;
+            }
+            if reveal.blue > max.blue {
+                max.blue = reveal.blue;
+            }
+        });
 
-        Reveal { red, green, blue }
+        max
     }
 }
 
