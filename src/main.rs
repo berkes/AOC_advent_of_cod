@@ -1,5 +1,6 @@
 mod cube_game;
 mod engine_parts;
+mod scratch_cards;
 mod trebuchet;
 
 fn main() {
@@ -16,4 +17,7 @@ fn main() {
     let input = include_str!("../datafiles/03.txt");
     println!("Day 3 Part 1: {}", engine_parts::sum(input));
     println!("Day 3 Part 2: {}", engine_parts::gear_ratio(input));
+
+    let input = include_str!("../datafiles/04.txt");
+    println!("Day 4 Part 1: {}", scratch_cards::scratch_cards(input));
 }
