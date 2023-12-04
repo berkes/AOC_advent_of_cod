@@ -15,4 +15,5 @@ fn main() {
 
     let input = include_str!("../datafiles/03.txt");
     println!("Day 3 Part 1: {}", engine_parts::sum(input));
+    println!("Day 3 Part 2: {}", engine_parts::gear_ratio(input));
 }

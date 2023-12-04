@@ -64,3 +64,20 @@ fn engine_parts_test() {
 
     assert_eq!(engine_parts::sum(input), 4361);
 }
+
+#[test]
+fn engine_parts_gear_ratio_test() {
+    let input = r#"467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598.."#;
+
+    assert_eq!(engine_parts::gear_ratio(input), 467835);
+}
+
