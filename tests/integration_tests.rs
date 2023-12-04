@@ -1,4 +1,5 @@
 use aoc::cube_game;
+use aoc::engine_parts;
 use aoc::trebuchet;
 
 #[test]
@@ -46,4 +47,20 @@ Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"#;
 
     assert_eq!(cube_game::fewest_power(input), 2286);
+}
+
+#[test]
+fn engine_parts_test() {
+    let input = r#"467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598.."#;
+
+    assert_eq!(engine_parts::sum(input), 4361);
 }

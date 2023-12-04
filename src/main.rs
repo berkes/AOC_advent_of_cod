@@ -1,4 +1,5 @@
 mod cube_game;
+mod engine_parts;
 mod trebuchet;
 
 fn main() {
@@ -11,4 +12,7 @@ fn main() {
     let input = include_str!("../datafiles/02.txt");
     println!("Day 2 Part 1: {}", cube_game::cube_game(input));
     println!("Day 2 Part 2: {}", cube_game::fewest_power(input));
+
+    let input = include_str!("../datafiles/03.txt");
+    println!("Day 3 Part 1: {}", engine_parts::sum(input));
 }
