@@ -92,13 +92,7 @@ mod tests {
         let line = "abcone2threexyz";
         let mut numbers = number_words()
             .iter()
-            .filter_map(|word| {
-                if let Some(idx) = line.find(word) {
-                    Some((idx, word_to_u32(word).unwrap()))
-                } else {
-                    None
-                }
-            })
+            .filter_map(|word| line.find(word).map(|idx| (idx, word_to_u32(word).unwrap())))
             .collect::<Vec<(usize, u32)>>();
 
         // sort by index
