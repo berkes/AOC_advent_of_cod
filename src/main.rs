@@ -1,3 +1,4 @@
+mod almanac;
 mod cube_game;
 mod engine_parts;
 mod scratch_cards;
@@ -20,4 +21,9 @@ fn main() {
 
     let input = include_str!("../datafiles/04.txt");
     println!("Day 4 Part 1: {}", scratch_cards::scratch_cards(input));
+
+    let input = include_str!("../datafiles/05.txt");
+    println!("Day 5 Part 1: {}", almanac::lowest(input));
+    // Attempt at brute force
+    println!("Day 5 Part 2: {}", almanac::ranged(input));
 }
