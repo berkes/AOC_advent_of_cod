@@ -3,6 +3,7 @@ use aoc::cube_game;
 use aoc::engine_parts;
 use aoc::scratch_cards;
 use aoc::trebuchet;
+use aoc::boatrace;
 
 #[test]
 fn trebuchet_test() {
@@ -172,3 +173,21 @@ humidity-to-location map:
 
     assert_eq!(almanac::ranged(input), 46);
 }
+
+#[test]
+fn boatrace_test() {
+    let input = r#"Time: 7 15 30
+Time:      7  15   30
+Distance:  9  40  200"#;
+
+    assert_eq!(boatrace::possible_wins(input), 288);
+}
+
+#[test]
+fn boatrace_kerning_test() {
+    let input = r#"Time:      71530
+Distance:  940200"#;
+
+    assert_eq!(boatrace::possible_wins(input),71503);
+}
+

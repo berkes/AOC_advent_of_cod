@@ -3,6 +3,7 @@ mod cube_game;
 mod engine_parts;
 mod scratch_cards;
 mod trebuchet;
+mod boatrace;
 
 fn main() {
     let input = include_str!("../datafiles/01.txt");
@@ -26,4 +27,9 @@ fn main() {
     println!("Day 5 Part 1: {}", almanac::lowest(input));
     // Attempt at brute force
     // println!("Day 5 Part 2: {}", almanac::ranged(input));
+
+    let input = include_str!("../datafiles/06.1.txt");
+    println!("Day 6 Part 1: {}", boatrace::possible_wins(input));
+    let input = include_str!("../datafiles/06.2.txt");
+    println!("Day 6 Part 2: {}", boatrace::possible_wins(input));
 }
