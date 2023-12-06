@@ -25,5 +25,5 @@ fn main() {
     let input = include_str!("../datafiles/05.txt");
     println!("Day 5 Part 1: {}", almanac::lowest(input));
     // Attempt at brute force
-    println!("Day 5 Part 2: {}", almanac::ranged(input));
+    // println!("Day 5 Part 2: {}", almanac::ranged(input));
 }

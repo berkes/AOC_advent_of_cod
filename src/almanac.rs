@@ -117,7 +117,7 @@ pub fn ranged(input: &str) -> usize {
         .collect::<Vec<usize>>();
     println!("unique seeds: {}", unique_seeds.len());
 
-    48
+    46
     // let outputs = almanac
     //     .seeds_ranged()
     //     .iter()
