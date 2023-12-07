@@ -84,7 +84,6 @@ mod tests {
         let times = &[7, 15, 30];
         let distances = &[9, 40, 200];
 
-
         let options = times
             .iter()
             .zip(distances.iter())

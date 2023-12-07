@@ -1,9 +1,9 @@
 mod almanac;
+mod boatrace;
 mod cube_game;
 mod engine_parts;
 mod scratch_cards;
 mod trebuchet;
-mod boatrace;
 
 fn main() {
     let input = include_str!("../datafiles/01.txt");

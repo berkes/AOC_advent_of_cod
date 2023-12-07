@@ -1,9 +1,9 @@
 use aoc::almanac;
+use aoc::boatrace;
 use aoc::cube_game;
 use aoc::engine_parts;
 use aoc::scratch_cards;
 use aoc::trebuchet;
-use aoc::boatrace;
 
 #[test]
 fn trebuchet_test() {
@@ -188,6 +188,6 @@ fn boatrace_kerning_test() {
     let input = r#"Time:      71530
 Distance:  940200"#;
 
-    assert_eq!(boatrace::possible_wins(input),71503);
+    assert_eq!(boatrace::possible_wins(input), 71503);
 }
 
