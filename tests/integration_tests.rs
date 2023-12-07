@@ -1,5 +1,6 @@
 use aoc::almanac;
 use aoc::boatrace;
+use aoc::camel_cards;
 use aoc::cube_game;
 use aoc::engine_parts;
 use aoc::scratch_cards;
@@ -191,3 +192,13 @@ Distance:  940200"#;
     assert_eq!(boatrace::possible_wins(input), 71503);
 }
 
+#[test]
+fn camel_cards_test() {
+    let input = r#"32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483"#;
+
+    assert_eq!(camel_cards::total_winnings(input), 6440);
+}

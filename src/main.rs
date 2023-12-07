@@ -1,5 +1,6 @@
 mod almanac;
 mod boatrace;
+mod camel_cards;
 mod cube_game;
 mod engine_parts;
 mod scratch_cards;
@@ -32,4 +33,7 @@ fn main() {
     println!("Day 6 Part 1: {}", boatrace::possible_wins(input));
     let input = include_str!("../datafiles/06.2.txt");
     println!("Day 6 Part 2: {}", boatrace::possible_wins(input));
+
+    let input = include_str!("../datafiles/07.txt");
+    println!("Day 7 Part 1: {}", camel_cards::total_winnings(input));
 }

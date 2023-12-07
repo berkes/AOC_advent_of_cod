@@ -1,5 +1,6 @@
 pub mod almanac;
 pub mod boatrace;
+pub mod camel_cards;
 pub mod cube_game;
 pub mod engine_parts;
 pub mod scratch_cards;
