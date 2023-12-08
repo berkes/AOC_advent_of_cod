@@ -3,6 +3,7 @@ use aoc::boatrace;
 use aoc::camel_cards;
 use aoc::cube_game;
 use aoc::engine_parts;
+use aoc::network;
 use aoc::scratch_cards;
 use aoc::trebuchet;
 
@@ -201,4 +202,30 @@ KTJJT 220
 QQQJA 483"#;
 
     assert_eq!(camel_cards::total_winnings(input), 6440);
+}
+
+#[test]
+fn network_one_pass_test() {
+    let input = r#"RL
+
+AAA = (BBB, CCC)
+BBB = (DDD, EEE)
+CCC = (ZZZ, GGG)
+DDD = (DDD, DDD)
+EEE = (EEE, EEE)
+GGG = (GGG, GGG)
+ZZZ = (ZZZ, ZZZ)"#;
+
+    assert_eq!(network::count_steps(input), 2);
+}
+
+#[test]
+fn network_repeat_path_test() {
+    let input = r#"LLR
+
+AAA = (BBB, BBB)
+BBB = (AAA, ZZZ)
+ZZZ = (ZZZ, ZZZ)"#;
+
+    assert_eq!(network::count_steps(input), 6);
 }

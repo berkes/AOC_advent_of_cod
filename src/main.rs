@@ -3,6 +3,7 @@ mod boatrace;
 mod camel_cards;
 mod cube_game;
 mod engine_parts;
+mod network;
 mod scratch_cards;
 mod trebuchet;
 
@@ -75,6 +76,10 @@ fn main() {
         }
         (7, 2) => {
             todo!()
+        }
+        (8, 1) => {
+            let input = include_str!("../datafiles/08.txt");
+            println!("Day 8 Part 1: {}", network::count_steps(input));
         }
         _ => println!("Day {} Part {} not implemented yet", day, part),
     }
