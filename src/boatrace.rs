@@ -61,7 +61,7 @@ impl Race {
             })
             .collect::<Vec<_>>();
 
-        options.iter().min().unwrap().clone()..=options.iter().max().unwrap().clone()
+        *options.iter().min().unwrap()..=*options.iter().max().unwrap()
     }
 }
 

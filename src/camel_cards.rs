@@ -17,7 +17,7 @@ impl From<&str> for CamelCards {
     fn from(input: &str) -> Self {
         let mut hands = input
             .lines()
-            .map(|line| Hand::from(line))
+            .map(Hand::from)
             .collect::<Vec<Hand>>();
 
         hands.sort();
