@@ -4,6 +4,7 @@ use aoc::camel_cards;
 use aoc::cube_game;
 use aoc::engine_parts;
 use aoc::network;
+use aoc::oasis;
 use aoc::scratch_cards;
 use aoc::trebuchet;
 
@@ -228,4 +229,13 @@ BBB = (AAA, ZZZ)
 ZZZ = (ZZZ, ZZZ)"#;
 
     assert_eq!(network::count_steps(input), 6);
+}
+
+#[test]
+fn oasis_extrapolations_sum_test() {
+    let input = r#"0 3 6 9 12 15
+1 3 6 10 15 21
+10 13 16 21 30 45"#;
+
+    assert_eq!(oasis::extrapolations_sum(input), 114);
 }

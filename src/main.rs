@@ -4,6 +4,7 @@ mod camel_cards;
 mod cube_game;
 mod engine_parts;
 mod network;
+mod oasis;
 mod scratch_cards;
 mod trebuchet;
 
@@ -80,6 +81,13 @@ fn main() {
         (8, 1) => {
             let input = include_str!("../datafiles/08.txt");
             println!("Day 8 Part 1: {}", network::count_steps(input));
+        }
+        (9, 1) => {
+            let input = include_str!("../datafiles/09.txt");
+            println!("Day 9 Part 1: {}", oasis::extrapolations_sum(input));
+        }
+        (9, 2) => {
+            todo!()
         }
         _ => println!("Day {} Part {} not implemented yet", day, part),
     }
