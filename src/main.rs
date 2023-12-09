@@ -87,7 +87,8 @@ fn main() {
             println!("Day 9 Part 1: {}", oasis::extrapolations_sum(input));
         }
         (9, 2) => {
-            todo!()
+            let input = include_str!("../datafiles/09.txt");
+            println!("Day 9 Part 1: {}", oasis::extrapolations_past_sum(input));
         }
         _ => println!("Day {} Part {} not implemented yet", day, part),
     }

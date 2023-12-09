@@ -12,6 +12,10 @@ impl Report {
     fn extrapolations(&self) -> Vec<isize> {
         self.histories.iter().map(|h| h.extrapolation()).collect()
     }
+
+    fn extrapolations_past(&self) -> Vec<isize> {
+        self.histories.iter().map(|h| h.extrapolation_past()).collect()
+    }
 }
 
 #[derive(Debug, PartialEq)]
@@ -55,6 +59,13 @@ impl History {
             acc + last
         })
     }
+
+    fn extrapolation_past(&self) -> isize {
+        let reverse_history = History {
+            numbers: self.numbers.iter().rev().cloned().collect()
+        };
+        reverse_history.extrapolation()
+    }
 }
 
 fn is_uniform(unwrap: &[isize]) -> bool {
@@ -65,6 +76,12 @@ fn is_uniform(unwrap: &[isize]) -> bool {
 pub fn extrapolations_sum(input: &str) -> isize {
     let report = Report::from(input);
     report.extrapolations().iter().sum()
+}
+
+
+pub fn extrapolations_past_sum(input: &str) -> isize {
+    let report = Report::from(input);
+    report.extrapolations_past().iter().sum()
 }
 
 #[cfg(test)]
