@@ -6,4 +6,5 @@ pub mod engine_parts;
 pub mod network;
 pub mod oasis;
 pub mod scratch_cards;
+pub mod springs;
 pub mod trebuchet;

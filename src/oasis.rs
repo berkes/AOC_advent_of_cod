@@ -14,7 +14,10 @@ impl Report {
     }
 
     fn extrapolations_past(&self) -> Vec<isize> {
-        self.histories.iter().map(|h| h.extrapolation_past()).collect()
+        self.histories
+            .iter()
+            .map(|h| h.extrapolation_past())
+            .collect()
     }
 }
 
@@ -62,7 +65,7 @@ impl History {
 
     fn extrapolation_past(&self) -> isize {
         let reverse_history = History {
-            numbers: self.numbers.iter().rev().cloned().collect()
+            numbers: self.numbers.iter().rev().cloned().collect(),
         };
         reverse_history.extrapolation()
     }
@@ -77,7 +80,6 @@ pub fn extrapolations_sum(input: &str) -> isize {
     let report = Report::from(input);
     report.extrapolations().iter().sum()
 }
-
 
 pub fn extrapolations_past_sum(input: &str) -> isize {
     let report = Report::from(input);

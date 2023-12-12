@@ -6,6 +6,7 @@ use aoc::engine_parts;
 use aoc::network;
 use aoc::oasis;
 use aoc::scratch_cards;
+use aoc::springs;
 use aoc::trebuchet;
 
 #[test]
@@ -244,4 +245,16 @@ fn oasis_extrapolations_future_sum_test() {
 fn oasis_extrapolations_past_sum_test() {
     let input = r#"10  13  16  21  30  45"#;
     assert_eq!(oasis::extrapolations_past_sum(input), 5);
+}
+
+#[test]
+fn springs_arrangement_total_test() {
+    let input = r#"???.### 1,1,3
+.??..??...?##. 1,1,3
+?#?#?#?#?#?#?#? 1,3,1,6
+????.#...#... 4,1,1
+????.######..#####. 1,6,5
+?###???????? 3,2,1"#;
+
+    assert_eq!(springs::arrangements_total(input), 21);
 }

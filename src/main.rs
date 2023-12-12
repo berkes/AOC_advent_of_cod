@@ -6,6 +6,7 @@ mod engine_parts;
 mod network;
 mod oasis;
 mod scratch_cards;
+mod springs;
 mod trebuchet;
 
 fn main() {
@@ -89,6 +90,10 @@ fn main() {
         (9, 2) => {
             let input = include_str!("../datafiles/09.txt");
             println!("Day 9 Part 1: {}", oasis::extrapolations_past_sum(input));
+        }
+        (12, 1) => {
+            let input = include_str!("../datafiles/12.txt");
+            println!("Day 12 Part 1: {}", springs::arrangements_total(input));
         }
         _ => println!("Day {} Part {} not implemented yet", day, part),
     }
